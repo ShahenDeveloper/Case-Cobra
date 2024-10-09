@@ -420,9 +420,9 @@ const DesignConfiguration = ({
                 }
                 className="w-full"
                 size={"sm"}
-                // isLoading={isPending}
+                isLoading={isPending}
                 disabled={isPending}
-                // loadingText="Saving"
+                loadingText="Saving"
               >
                 Continue <ArrowRight className="h-4 w-4 inline ml-1.5" />
               </Button>
