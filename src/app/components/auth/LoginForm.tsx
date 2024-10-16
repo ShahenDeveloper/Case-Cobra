@@ -101,7 +101,7 @@ const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ? ", Both
 
           <FormError message={error || urlError} />
           <FormSuccess message={success}/>
-          <Button disabled={isPending} type="submit" className="w-full">
+          <Button loadingText="Logging" isLoading={isPending} type="submit" className="w-full">
             Login
           </Button>
         </form>

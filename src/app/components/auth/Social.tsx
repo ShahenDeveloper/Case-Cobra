@@ -48,8 +48,7 @@ const Social = () => {
         size={"lg"}
         variant={"ghost"}
         className="w-full border hover:bg-slate-100"
-        onClick={() => {}}
-        // loadingColor={true}
+        onClick={() => {onClick("github")}}
       >
         <svg
           width="20px"

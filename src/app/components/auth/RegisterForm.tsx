@@ -114,7 +114,7 @@ const RegisterForm = () => {
 
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button disabled={isPending} type="submit" className="w-full">
+          <Button isLoading={isPending} loadingText="Creating account" type="submit" className="w-full">
             Register
           </Button>
         </form>

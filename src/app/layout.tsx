@@ -1,12 +1,13 @@
 import "./globals.css";
 import Footer from "./components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { Recursive } from 'next/font/google'
+import { Recursive } from "next/font/google";
 import Providers from "./components/Providers"; // react-query provider
 import { contructMetadata } from "@/lib/utils";
 import Navbar from "./components/Navbar";
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react"; // next-auth session provider
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const recursive = Recursive({
   subsets: ["latin"],
@@ -29,7 +30,9 @@ export default async function RootLayout({
           <body className={`${recursive.className}`}>
             <Navbar />
             <main className="flex grany-light flex-col min-h-[calc(100vh-3.5rem-1px)]">
-              <div className="flex-1 flex flex-col h-full">{children}</div>
+              <div className="flex-1 flex flex-col h-full">
+                <TooltipProvider>{children}</TooltipProvider>
+              </div>
               <Footer />
             </main>
             <Toaster />

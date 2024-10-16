@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { changeOrderStatus } from "./action";
 
 // Correctly map the OrderStatus enum keys
-const LABEL_MAP: Record<OrderStatus, string> = {
+export const LABEL_MAP: Record<OrderStatus, string> = {
   awaiting_shipment: "Awaiting Shipment",
   fulfilled: "Fulfilled",
   shipped: "Shipped",

@@ -17,7 +17,6 @@ const ThankYou = () => {
     retryDelay: 500,
   });
 
-  console.log("data of thank you client page",data)
   if (data === undefined) {
     return (
       <div className="w-full mt-24 justify-center">
