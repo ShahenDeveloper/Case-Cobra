@@ -1,7 +1,5 @@
-"use client";
 import { Check, Star } from "lucide-react";
 import Phone from "./Phone";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 

@@ -1,7 +1,7 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
 import Comment from "./Comment";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const commentsData = [
   {
@@ -44,16 +44,14 @@ const commentsData = [
   },
 ];
 
-
-
 const Comments = () => {
   const [width, setWidth] = useState(0);
   const [isMounted, setIsMounted] = useState(false); // Track component mount status
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const controls = useAnimation();
 
-  // Function for auto-scrolling
-  const startAutoScroll = async () => {
+  // Memoize the startAutoScroll function
+  const startAutoScroll = useCallback(async () => {
     if (!isMounted || width <= 0) return; // Ensure component is mounted and width is calculated
 
     try {
@@ -77,25 +75,23 @@ const Comments = () => {
     } catch (error) {
       console.error("Animation Error:", error);
     }
-  };
+  }, [isMounted, width, controls]);
 
-  // Calculate carousel width after component mounts
   useEffect(() => {
     if (carouselRef.current) {
       const scrollWidth = carouselRef.current.scrollWidth;
       const offsetWidth = carouselRef.current.offsetWidth;
-      setWidth(scrollWidth - offsetWidth); // Set width after component is mounted
+      setWidth(scrollWidth - offsetWidth);
     }
 
-    setIsMounted(true); // Mark as mounted
+    setIsMounted(true);
   }, []);
 
-  // Trigger auto-scroll only when width is calculated and component is mounted
   useEffect(() => {
     if (isMounted && width > 0) {
-      startAutoScroll(); // Start auto-scroll only after everything is ready
+      startAutoScroll(); 
     }
-  }, [isMounted, width]);
+  }, [isMounted, width, startAutoScroll]);
 
   return (
     <motion.div ref={carouselRef} className="overflow-hidden w-full flex items-center">
@@ -114,7 +110,6 @@ const Comments = () => {
               text1={comment.text1}
               hightLightedText={comment.hightLightedText}
               text2={comment.text2}
-              delay={comment.delay}
             />
           </motion.div>
         ))}

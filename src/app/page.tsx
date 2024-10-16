@@ -7,6 +7,7 @@ import Link from "next/link";
 import ShoppingCart from "./components/ShoppingCart";
 import Comments from "./components/Comments";
 import HeroSection from "./components/HeroSection";
+import { Icons } from "./components/Icons";
 
 export default function Home() {
   return (
@@ -15,20 +16,16 @@ export default function Home() {
       <HeroSection />
       <section className="bg-slate-100 py-24 overflow-hidden">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
-          <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
-            <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
-              <span>Upload your photo and get</span>
-              <span className="relative px-2 text-green-600">
-                your own case
-              </span>
-              <span>now</span>
+        <div className='flex flex-col lg:flex-row items-center gap-4 sm:gap-6'>
+            <h2 className='order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900'>
+              What our{' '}
+              <span className='relative px-2'>
+                customers{' '}
+                <Icons.underline className='hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-green-500' />
+              </span>{' '}
+              say
             </h2>
-
-            <img
-              src="/snake-2.png"
-              className="w-24 order-0 lg:order-2"
-              alt="logo"
-            />
+            <img src='/snake-2.png' className='w-24 order-0 lg:order-2' />
           </div>
           <Comments />
         </MaxWidthWrapper>

@@ -1,5 +1,3 @@
-"use client"
-import { motion } from 'framer-motion'
 import { Check, Star } from 'lucide-react'
 import React from 'react'
 
@@ -7,7 +5,6 @@ interface CommentProps {
     text1: string;
     text2?: string
     hightLightedText: string;
-    delay?: number;
     imgSrc: string;
     customerName: string
 }
@@ -15,17 +12,12 @@ const Comment: React.FC<CommentProps> = ({
     text1,
     text2,
     hightLightedText,
-    delay=0,
     imgSrc,
     customerName
 }) => {
   return (
-    <motion.div 
-    // initial={{x: -200, opacity: 0}} 
-    // whileInView={{x: 0, opacity: 1}} 
-    // transition={{duration: .5, ease:"easeIn", type:"spring", delay: delay ? delay : 0}} 
+    <div 
     className="flex flex-auto flex-col gap-4 " 
-    // lg:pr-8 xl:pr-20
   >
     <div className="flex gap-0.5 mb-2">
       <Star className="h-5 w-5 text-green-600 fill-green-600" />
@@ -57,7 +49,7 @@ const Comment: React.FC<CommentProps> = ({
         </div>
       </div>
     </div>
-  </motion.div>  )
+  </div>  )
 }
 
 export default Comment
